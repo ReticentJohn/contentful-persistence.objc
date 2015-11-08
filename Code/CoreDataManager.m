@@ -392,6 +392,11 @@ NSString* EntityNameFromClass(Class class) {
             }
         }
 
+        if (field.type == CDAFieldTypeObject) {
+            // Handled after the fact in updatePersistedEntry:withEntry:
+            [mapping removeObjectForKey:keyPath];
+        }
+
         if (field.type == CDAFieldTypeLink) {
             [NSException raise:NSInvalidArgumentException format:@"Invalid mapping: field '%@' of Content Type '%@' is a link, but '%@' is not a relationship.", field.name, contentType.name, mapping[keyPath]];
         }
@@ -478,7 +483,7 @@ NSString* EntityNameFromClass(Class class) {
 
     NSDictionary* mappingForEntries = [super mappingForEntriesOfContentTypeWithIdentifier:entry.contentType.identifier];
     [self enumerateMappedFieldsForContentTypeWithIdentifier:entry.contentType.identifier mapping:mappingForEntries usingBlock:^(CDAContentType *contentType, CDAField *field, NSString *keyPath) {
-        if (field.type == CDAFieldTypeArray && field.itemType == CDAFieldTypeSymbol) {
+        if ((field.type == CDAFieldTypeArray && field.itemType == CDAFieldTypeSymbol) || field.type == CDAFieldTypeObject) {
             NSString* key = mappingForEntries[keyPath];
             NSAttributeDescription* attributeDescription = [self entityDescriptionForClass:persistedEntry.class].attributesByName[key];
 
