@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Realm' do |ss|
-    ss.dependency 'Realm', '~> 2.5.0'
+    ss.dependency 'Realm', '~> 2.6.0'
 
     ss.source_files = 'Code/Realm*.{h,m}'
 
