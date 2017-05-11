@@ -1,22 +1,22 @@
+////
+////  RealmAsset.h
+////  ContentfulSDK
+////
+////  Created by Boris Bügling on 08/12/14.
+////
+////
 //
-//  RealmAsset.h
-//  ContentfulSDK
+//#import <ContentfulDeliveryAPI/CDAPersistedAsset.h>
+//#import <Realm/RLMObject.h>
 //
-//  Created by Boris Bügling on 08/12/14.
+//@interface RealmAsset : RLMObject <CDAPersistedAsset>
 //
 //
-
-#import <ContentfulDeliveryAPI/CDAPersistedAsset.h>
-#import <Realm/RLMObject.h>
-
-@interface RealmAsset : RLMObject <CDAPersistedAsset>
-
-
-#pragma mark - <CDAPersistedAsset>
-
-/** The description of the Asset. */
-@property (nonatomic, nullable) NSString* assetDescription;
-/** The title of the Asset. */
-@property (nonatomic, nullable) NSString* title;
-
-@end
+//#pragma mark - <CDAPersistedAsset>
+//
+///** The description of the Asset. */
+//@property (nonatomic, nullable) NSString* assetDescription;
+///** The title of the Asset. */
+//@property (nonatomic, nullable) NSString* title;
+//
+//@end
