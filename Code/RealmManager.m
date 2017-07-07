@@ -16,7 +16,7 @@
 
 @interface RealmManager ()
 
-@property (nonatomic, readonly) RLMRealm* currentRealm;
+@property (nonatomic) RLMRealm* currentRealm;
 @property (nonatomic) NSMutableDictionary* relationshipsToResolve;
 
 @end
@@ -34,7 +34,11 @@
 }
 
 -(RLMRealm *)currentRealm {
-    return [RLMRealm defaultRealm];
+    if (!_currentRealm) {
+        _currentRealm = [RLMRealm defaultRealm];
+    }
+    
+    return _currentRealm;
 }
 
 -(id<CDAPersistedAsset>)createPersistedAsset {
