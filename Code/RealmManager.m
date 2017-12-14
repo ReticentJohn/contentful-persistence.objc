@@ -242,10 +242,10 @@
             return;
         }
 
-        relationships[relationshipName] = relationshipTarget;
+        [relationships setValue:relationshipTarget forKey:relationshipName];
+        
+        self.relationshipsToResolve[entry.identifier] = [relationships copy];
     }
-
-    self.relationshipsToResolve[entry.identifier] = [relationships copy];
 }
 
 @end
