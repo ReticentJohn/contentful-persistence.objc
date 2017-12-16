@@ -233,13 +233,13 @@
         NSString* entryKeyPath = [[mappingForEntries allKeysForObject:relationshipName] firstObject];
 
         if (!entryKeyPath) {
-            return;
+            continue;
         }
 
         id relationshipTarget = [entry valueForKeyPath:entryKeyPath];
 
         if (!relationshipTarget) {
-            return;
+            continue;
         }
 
         [relationships setValue:relationshipTarget forKey:relationshipName];
